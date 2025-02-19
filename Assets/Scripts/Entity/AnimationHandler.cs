@@ -44,6 +44,6 @@ public class AnimationHandler : MonoBehaviour
 
     public void Attack()
     {
-        
+        animator.SetTrigger(IsAttack);
     } 
 }

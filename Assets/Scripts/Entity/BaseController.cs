@@ -121,6 +121,8 @@ public class BaseController : MonoBehaviour
 
     protected virtual void Attack()
     {
+        animationHandler.Attack();
+
         if (lookDirection != Vector2.zero)
             weaponHandler?.Attack();
     }
