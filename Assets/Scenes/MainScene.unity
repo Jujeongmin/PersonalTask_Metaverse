@@ -917,6 +917,7 @@ GameObject:
   m_Component:
   - component: {fileID: 666962928}
   - component: {fileID: 666962929}
+  - component: {fileID: 666962930}
   m_Layer: 0
   m_Name: MainSprite
   m_TagString: Untagged
@@ -991,6 +992,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &666962930
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 666962927}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0d708512b0a97794a8d12037d83c0203, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &667543947
 GameObject:
   m_ObjectHideFlags: 0
@@ -1002,6 +1024,7 @@ GameObject:
   - component: {fileID: 667543948}
   - component: {fileID: 667543950}
   - component: {fileID: 667543949}
+  - component: {fileID: 667543951}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1098,6 +1121,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &667543951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 667543947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f76d55b1cc623f0469630b5465bbbd1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterRenderer: {fileID: 666962929}
+  weaponPivot: {fileID: 0}
 --- !u!1 &746386431
 GameObject:
   m_ObjectHideFlags: 0
