@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : BaseController
 {
     private Camera camera;
+    
 
     protected override void Start()
     {
@@ -31,4 +32,6 @@ public class PlayerController : BaseController
             lookDirection = lookDirection.normalized;
         }
     }
+ 
+
 }
