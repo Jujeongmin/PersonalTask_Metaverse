@@ -24,7 +24,7 @@ public class BaseController : MonoBehaviour
     protected WeaponHandler weaponHandler;
 
     protected bool isAttacking;
-    private float timeSinceLastAttack = float.MaxValue;
+    private float timeSinceLastAttack = float.MaxValue;    
 
     protected virtual void Awake()
     {
