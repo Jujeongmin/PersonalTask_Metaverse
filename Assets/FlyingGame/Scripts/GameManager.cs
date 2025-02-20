@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -15,24 +16,60 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        gameManager = this;
-        uiManager = FindObjectOfType<UIManager>();
+        if (gameManager == null)
+        {
+            gameManager = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     private void Start()
     {
-        uiManager.UpdateScore(0);
+        FindUIManager();
+        ResetScore();
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        FindUIManager();
+        ResetScore();
+    }
+
+    private void FindUIManager()
+    {
+        uiManager = FindObjectOfType<UIManager>();
+        if (uiManager == null)
+        {
+            Debug.LogError("UIManager is null");
+        }
     }
 
     public void GameOver()
     {
         Debug.Log("Game Over");
-        uiManager.SetRestart();
+        uiManager.restartButton.gameObject.SetActive(true);
+        uiManager.exitButton.gameObject.SetActive(true);               
     }
 
     public void RestartGame()
+    {        
+        uiManager.ReStartGame();
+    }
+
+    private void ResetScore()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        currentScore = 0;
+        if(uiManager != null)
+        {
+            uiManager.UpdateScore(currentScore);
+        }
     }
 
     public void AddScore(int score)

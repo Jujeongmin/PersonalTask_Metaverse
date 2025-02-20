@@ -18,12 +18,17 @@ public class Player : MonoBehaviour
     public bool godMode = false;
 
     GameManager gameManager;
+    UIManager uiManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        gameManager = GameManager.Instance;
+        gameManager = GameManager.Instance ?? FindObjectOfType<GameManager>();
 
+        if(gameManager == null)
+        {
+            Debug.LogError("GameManager is null");
+        }
         animator = GetComponentInChildren<Animator>();
         _rigidbody = GetComponent<Rigidbody2D>();
 
@@ -42,11 +47,7 @@ public class Player : MonoBehaviour
         {
             if (deathCooldown <= 0)
             {
-                // 게임 재시작
-                if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
-                {
-                    gameManager.RestartGame();
-                }
+
             }
             else
             {

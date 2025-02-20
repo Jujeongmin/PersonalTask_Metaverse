@@ -1,27 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    public Button restartButton;
+    public Button exitButton;
+
     public TextMeshProUGUI scoreText;
-    public TextMeshProUGUI restartText;
-    // Start is called before the first frame update
+
     void Start()
     {
-        if (restartText == null)
-            Debug.LogError("restart text is null");
-
-        if (scoreText == null)
-            Debug.LogError("score text is null");
-
-        restartText.gameObject.SetActive(false);
+        restartButton.gameObject.SetActive(false);
+        exitButton.gameObject.SetActive(false);
+        restartButton.onClick.AddListener(OnRestartButtonClick);
+        exitButton.onClick.AddListener(OnExitButtonCLick);
     }
 
-    public void SetRestart()
+    public void ReStartGame()
     {
-        restartText.gameObject.SetActive(true);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);        
+    }
+
+    public void ExitGame()
+    {
+        SceneManager.LoadScene("MainScene");
+    }
+
+    private void OnRestartButtonClick()
+    {
+        ReStartGame();
+    }
+
+    private void OnExitButtonCLick()
+    {
+        ExitGame();
     }
 
     public void UpdateScore(int score)
