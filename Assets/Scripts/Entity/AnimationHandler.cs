@@ -34,12 +34,12 @@ public class AnimationHandler : MonoBehaviour
 
     public void Jump()
     {
-        animator.SetBool(IsJump, true);
+        animator.SetTrigger(IsJump);
     }
 
     public void Slide()
     {
-        animator.SetBool(IsSlide, true);
+        animator.SetTrigger(IsSlide);
     }
 
     public void Attack()
